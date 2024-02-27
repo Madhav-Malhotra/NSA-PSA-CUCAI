@@ -17,5 +17,5 @@ This Folder is organized as follows:
 4. On a new terminal run top, and get the first PID
 ```top```
 5. Open a new terminal and run memprofiler.py
-```python3 memprofiler.py -h -o {relative path}/memstats.csv -p {PID}```
+```python3 memprofiler.py -o {relative path}/memstats.csv -p {PID}```
 6. Stop execution: ctrl-c to stop on both terminals
