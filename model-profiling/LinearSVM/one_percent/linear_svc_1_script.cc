@@ -10,6 +10,4 @@ int main() {
     while (true) {
         double result = score(input);
     }
-
-    return 0;
 }

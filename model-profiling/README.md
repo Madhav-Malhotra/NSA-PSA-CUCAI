@@ -5,15 +5,19 @@ This contains scripts used to measure the memory usage and inference time of the
 Each folder contains a `one_percent`, `five_percent`, and `ten_percent` folder which represents the dataset size of which the model was trained on.
 Each subfolder contains an executable script `script_name`, its C++ code `script_name.cc`, and the memory statistics `memstats.csv`
 This Folder is organized as follows:
-- `LogisticRegression`: script and memory statistics for a Logistic Regression model
-- `LinearSVM`: script and memory statistics for a Linear Support Vector Machine model
+- `PSA`: script and memory statistics for Positive Selection Algorithm models
+- `NSA`: script and memory statistics for Negative Selection Algorithm models
+- `LogisticRegression`: script and memory statistics for Logistic Regression models
+- `LinearSVM`: script and memory statistics for Linear Support Vector Machine models
+- `RandomForest`: script and memory statistics for Random Forest models
+- `XGBoost`: script and memory statistics for eXtreme Gradient Boosting models
 
 ## Replication
 1. Open a terminal and cd to a subfolder of choice
 2. Compile the script
-```g++ -Wall {script_name}.cc -o {script_name} -std=c++11```
+```g++ -Wall {script_name}.cc -o {script_name}.o -std=c++11```
 3. Run the executable script
-```./{script_name}```
+```./{script_name}.o```
 4. On a new terminal run top, and get the first PID
 ```top```
 5. Open a new terminal and run memprofiler.py
