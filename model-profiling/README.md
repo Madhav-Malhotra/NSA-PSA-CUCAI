@@ -13,13 +13,26 @@ This Folder is organized as follows:
 - `XGBoost`: script and memory statistics for eXtreme Gradient Boosting models
 
 ## Replication
+models: PSA, NSA, LogisticReggression, and LinearSVM
 1. Open a terminal and cd to a subfolder of choice
 2. Compile the script
-```g++ -Wall {script_name}.cc -o {script_name}.o -std=c++11```
+`g++ -Wall {script_name}.cc -o {script_name}.o -std=c++11`
 3. Run the executable script
-```./{script_name}.o```
+`./{script_name}.o`
 4. On a new terminal run top, and get the first PID
-```top```
+`top`
 5. Open a new terminal and run memprofiler.py
-```python3 memprofiler.py -o {relative path}/memstats.csv -p {PID}```
+`python3 memprofiler.py -o {relative path}/memstats.csv -p {PID}`
+6. Stop execution: ctrl-c to stop on both terminals
+
+models: RandomForest, and XGBoost
+1. Open a terminal and cd to a subfolder of choice
+2. Compile the script
+`gcc -Wall {script_name}.c -o {script_name}.o`
+3. Run the executable script
+`./{script_name}.o`
+4. On a new terminal run top, and get the first PID
+`top`
+5. Open a new terminal and run memprofiler.py
+`python3 memprofiler.py -o {relative path}/memstats.csv -p {PID}`
 6. Stop execution: ctrl-c to stop on both terminals
