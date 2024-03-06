@@ -69,11 +69,11 @@ float* scaler(float request[], short cap) {
 
     // Hardcoded Mean and Standard Deviation
     // Get from StandardScaler() in Kaggle notebook
-    double mean[5]{8.3157144e+07, 7.6943680e+04, 1.3118273e+01, 3.8499920e+01, 1.8166219e+02};
-    double std_dev[5]{2.9066282e+14, 2.1407808e+11, 7.4370697e+01, 1.0545658e+05, 2.7581962e+05};  
+    double mean{8.3157144e+07};
+    double std_dev{2.9066282e+14};  
 
     for (short i{0}; i < cap; i++) {
-        request[i] = (request[i] - ((float) mean[i]))/ ((float) std_dev[i]);
+        request[i] = (request[i] - ((float) mean))/ ((float) std_dev);
     }
 
     return request;
