@@ -1,6 +1,6 @@
-#include <iostream>
+// Library imports
 #include <chrono>
-
+#include <iostream>
 
 
 // Logistic Regression
@@ -29,34 +29,30 @@ double linear_svm_10_score(double * input) {
     return -2.314523807729939 + input[0] * 0.021861514572326497 + input[1] * -0.3439653552821472 + input[2] * -0.17322907238163707 + input[3] * 0.40940746850203424 + input[4] * 0.2380340942468712 + input[5] * -0.037428387672001455 + input[6] * -0.1724376099143574 + input[7] * 0.08771796407956828 + input[8] * -0.08620860555654354 + input[9] * 0.47794404206697944 + input[10] * 0.0011938349449675664 + input[11] * 0.005715157476240235 + input[12] * -0.004790778069632154 + input[13] * -0.004790778069632154 + input[14] * 0.09010063329685604 + input[15] * -0.40146343660406736 + input[16] * 0.05944725540158691 + input[17] * 0.10203094519439064 + input[18] * 0.08233529705250528 + input[19] * -0.006129090141512405 + input[20] * -0.006813194872066896 + input[21] * -0.04710045087573575 + input[22] * 0.08652248273258391 + input[23] * -0.01567644634568676 + input[24] * 0.20294778643868427 + input[25] * -0.05944328771811812 + input[26] * -0.13937068828402385 + input[27] * 0.008031172645642824 + input[28] * -0.13127496141542572 + input[29] * -0.49975289474365975 + input[30] * 0.08866832285949147 + input[31] * -0.8813287671218671 + input[32] * -1.3111282117872602 + input[33] * -0.18151963399603274 + input[34] * 0.0015325246311778784 + input[35] * -0.0011441471874599478 + input[36] * -0.0011441471874599478 + input[37] * 0.007692608591543609 + input[38] * 0.0011527410535045327 + input[39] * 0.0 + input[40] * -0.0008080344562427315 + input[41] * -0.0009831210751952806 + input[42] * -0.0002847265428072098 + input[43] * 0.0 + input[44] * 0.0;
 }
 
-// Random Forest
-
-// XGBoost
-
 // Function to measure the average time taken for another function to run across 1000 trials
 double measureAverageTime() {
-    std::chrono::duration<double> totalTime(0);
+    double totalTime{0.0};
     double input[] = {1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 16.0, 17.0, 18.0, 19.0, 20.0, 21.0, 22.0, 23.0, 24.0,
                         25.0, 26.0, 27.0, 28.0, 29.0, 30.0, 31.0, 32.0, 33.0, 34.0, 35.0, 36.0, 37.0, 38.0, 39.0, 40.0, 41.0, 42.0, 43.0, 44.0, 45.0};
     
-    for (int i = 0; i < 1000000; ++i) {
+    for (int i = 0; i < 1000; ++i) {
+        // record start and end times
         auto start = std::chrono::high_resolution_clock::now();
-
-        // Call the function to measure
         lr_5_score(input);
-
         auto end = std::chrono::high_resolution_clock::now();
-        auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
-        totalTime += duration;
+
+        std::chrono::duration<double, std::micro> duration = end - start;
+        totalTime += duration.count();
     }
 
     // Calculate the average time
-    return totalTime.count() / 1000000.0;
+    return totalTime / 1000.0;
 }
 
 int main() {
     double avgTime = measureAverageTime();
-    std::cout << "Average time taken for 'lr_1' across 1000000 trials: " << avgTime << " nanoseconds" << std::endl;
+    std::cout << "Average inference time across 1000 trials: " << avgTime
+              << " us" << std::endl;
 
     return 0;
 }
