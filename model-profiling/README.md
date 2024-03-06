@@ -15,7 +15,7 @@ This Folder is organized as follows:
 ## Replication
 models: PSA, NSA, LogisticReggression, and LinearSVM
 1. Open a terminal and cd to a subfolder of choice
-2. Compile the script
+2. Comp
 `g++ -Wall {script_name}.cc -o {script_name}.o -std=c++11`
 3. Run the executable script
 `./{script_name}.o`
