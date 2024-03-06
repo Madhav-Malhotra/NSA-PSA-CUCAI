@@ -34,14 +34,14 @@ double measureAverageTime() {
     double totalTime{0.0};
     double input[] = {1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 16.0, 17.0, 18.0, 19.0, 20.0, 21.0, 22.0, 23.0, 24.0,
                         25.0, 26.0, 27.0, 28.0, 29.0, 30.0, 31.0, 32.0, 33.0, 34.0, 35.0, 36.0, 37.0, 38.0, 39.0, 40.0, 41.0, 42.0, 43.0, 44.0, 45.0};
-    
+
     for (int i = 0; i < 1000; ++i) {
         // record start and end times
         auto start = std::chrono::high_resolution_clock::now();
-        lr_5_score(input);
+        linear_svm_10_score(input);
         auto end = std::chrono::high_resolution_clock::now();
 
-        std::chrono::duration<double, std::micro> duration = end - start;
+        std::chrono::duration<double, std::nano> duration = end - start;
         totalTime += duration.count();
     }
 
@@ -51,8 +51,8 @@ double measureAverageTime() {
 
 int main() {
     double avgTime = measureAverageTime();
-    std::cout << "Average inference time across 1000 trials: " << avgTime
-              << " us" << std::endl;
+    std::cout << "Average inference time across 10000 trials: " << avgTime
+              << " ns" << std::endl;
 
     return 0;
 }
