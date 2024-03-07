@@ -10,7 +10,7 @@ This Folder is organized as follows:
 - `LogisticRegression`: script and memory statistics for Logistic Regression models
 - `LinearSVM`: script and memory statistics for Linear Support Vector Machine models
 - `RandomForest`: script and memory statistics for Random Forest models
-- `XGBoost`: script and memory statistics for eXtreme Gradient Boosting models
+- `XGBoost`: script and mmory statistics for eXtreme Gradient Boosting models
 
 ## Replication
 models: PSA, NSA, LogisticReggression, and LinearSVM
