@@ -3070,7 +3070,7 @@ void score(double * input, double * output) {
 }
 
 int main() {
-    double input[5];
+    double input[45];
     double output[2];
     while(1) {
         score(input, output);
