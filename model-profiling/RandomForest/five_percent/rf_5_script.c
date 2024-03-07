@@ -12816,7 +12816,7 @@ void score(double * input, double * output) {
 }
 
 int main() {
-    double input[22];
+    double input[24];
     double output[2];
     while(1) {
         score(input, output);
